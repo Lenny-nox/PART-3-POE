@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Website title -->
+    <title>N.L.Rikhotso Cancer Care Product Store</title>
+
+    <!-- Allows the website to adjust to all screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Character support -->
+    <meta charset="UTF-8">
+
+    <style>
+
+        /* Basic page styling */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Navigation bar */
+        nav {
+            background-color: #7b1fa2;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: #ffd54f;
+        }
+
+        /* Mobile menu button */
+        .menu-btn {
+            display: none;
+            background-color: #7b1fa2;
+            color: white;
+            border: none;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Main header section */
+        header {
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Store logo */
+        header img {
+            width: 400px;
+            max-width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: contain;
+            float: right;
+            margin-left: 20px;
+        }
+
+        /* Main heading */
+        h1 {
+            color: #7b1fa2;
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #9c27b0;
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Products list */
+        ul {
+            display: inline-block;
+            text-align: left;
+            font-size: 18px;
+            line-height: 2;
+            max-width: 100%;
+        }
+
+        /* Shopping buttons */
+        header a.button {
+            display: inline-block;
+            background-color: #7b1fa2;
+            color: white;
+            padding: 12px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        header a.button:hover {
+            background-color: #9c27b0;
+        }
+
+        /* Tablet and mobile screen styling */
+        @media screen and (max-width: 768px) {
+
+            header {
+                padding: 20px;
+            }
+
+            header img {
+                float: none;
+                display: block;
+                margin: 0 auto 20px;
+                width: 300px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            ul {
+                font-size: 16px;
+            }
+
+            /* Show menu button on smaller screens */
+            .menu-btn {
+                display: block;
+                width: 100%;
+            }
+
+            /* Hide navigation links until clicked */
+            nav a {
+                display: none;
+                margin: 12px 0;
+            }
+
+            nav.active a {
+                display: block;
+            }
+        }
+
+        /* Small mobile screens */
+        @media screen and (max-width: 480px) {
+
+            header {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 19px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            ul {
+                font-size: 15px;
+                padding-left: 25px;
+            }
+
+            header a.button {
+                display: block;
+                margin: 12px auto;
+                max-width: 250px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION BAR
+         ========================= -->
+
+    <nav id="navbar">
+
+        <!-- Mobile menu button -->
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰ MENU
+        </button>
+
+        <!-- Website navigation links -->
+        <a href="home.html">HOME</a>
+        <a href="Products.html">PRODUCTS</a>
+        <a href="shop.html">SHOP HERE</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTENT SECTION
+         ========================= -->
+
+    <header>
+
+        <!-- Store logo -->
+        <img src="IMAGES/store logo.png"
+             alt="N.L.Rikhotso Cancer Care Products">
+
+        <!-- Main website heading -->
+        <h1>N.L.Rikhotso Cancer Care Product Store</h1>
+
+        <!-- Store slogan -->
+        <h2>Care. Comfort. Support. Hope.</h2>
+
+        <!-- Welcome message -->
+        <p id="welcome">
+            Welcome to the N.L.Rikhotso Cancer Care Product Store,
+            where we are committed to providing products designed to
+            support cancer patients, survivors, caregivers and families.
+        </p>
+
+        <!-- Information about the products -->
+        <p>
+            Our store offers carefully selected cancer care products
+            that aim to provide comfort, support and convenience throughout
+            the cancer care journey.
+        </p>
+
+
+        <!-- =========================
+             PRODUCTS AND SERVICES
+             ========================= -->
+
+        <h2>What We Offer</h2>
+
+        <ul>
+            <li>Cancer care and support products.</li>
+            <li>Comfort products for cancer patients.</li>
+            <li>Products designed to support patients during treatment.</li>
+            <li>Care products for survivors and caregivers.</li>
+            <li>Quality products at affordable prices.</li>
+            <li>Convenient online shopping.</li>
+        </ul>
+
+
+        <!-- =========================
+             WHY CHOOSE US
+             ========================= -->
+
+        <h2>Why Choose N.L.Rikhotso Cancer Care?</h2>
+
+        <p>
+            We understand that every cancer journey is different.
+            Our goal is to make access to supportive care products
+            easier while creating a store that is caring, trustworthy
+            and accessible to everyone.
+        </p>
+
+
+        <!-- =========================
+             SHOPPING SECTION
+             ========================= -->
+
+        <h2>Shop With Us</h2>
+
+        <p>
+            Explore our range of cancer care products and find the
+            support you or your loved one needs.
+        </p>
+
+
+        <!-- =========================
+             ACTION BUTTONS
+             ========================= -->
+
+        <p>
+
+            <!-- View products button -->
+            <a class="button" href="Products.html">
+                VIEW OUR PRODUCTS
+            </a>
+
+            <!-- Shopping page button -->
+            <a class="button" href="shop.html">
+                SHOP HERE
+            </a>
+
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         JAVASCRIPT SECTION
+         ========================= -->
+
+    <script>
+
+        // Function to open and close the mobile menu
+        function toggleMenu() {
+
+            // Get the navigation bar
+            var menu = document.getElementById("navbar");
+
+            // Add or remove the active class
+            menu.classList.toggle("active");
+
+        }
+
+        // Display a welcome message when the page loads
+        window.onload = function() {
+
+            console.log(
+                "Welcome to N.L.Rikhotso Cancer Care Product Store!"
+            );
+
+        };
+
+    </script>
+
+</body>
+</html>
+
+
+

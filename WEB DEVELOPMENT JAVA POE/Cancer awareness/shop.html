@@ -1,0 +1,800 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Title displayed on the browser tab -->
+    <title>N.L. Rikhotso Foundation | Shop Now</title>
+
+    <!-- Makes the website adjust to all screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Supports different characters -->
+    <meta charset="UTF-8">
+
+    <!-- =========================
+         CSS STYLING SECTION
+         ========================= -->
+
+    <style>
+
+        /* Applies styling to the entire webpage */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f0f7;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Styles the navigation bar */
+        nav {
+            background-color: #7b1fa2;
+            padding: 20px;
+        }
+
+        /* Styles navigation links */
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Changes link colour on hover */
+        nav a:hover {
+            color: #ffd54f;
+        }
+
+        /* Styles the mobile menu button */
+        .menu-btn {
+            display: none;
+            background-color: #7b1fa2;
+            color: white;
+            border: none;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Styles the main heading */
+        h1 {
+            color: #7b1fa2;
+            font-size: 36px;
+        }
+
+        /* Styles product category headings */
+        h2 {
+            color: #7b1fa2;
+            font-size: 28px;
+            margin-top: 30px;
+        }
+
+        /* Styles individual product headings */
+        h3 {
+            color: #9c27b0;
+            font-size: 21px;
+        }
+
+        /* Styles paragraphs */
+        p {
+            font-size: 17px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 15px auto;
+            padding: 0 10px;
+        }
+
+        /* Styles horizontal lines */
+        hr {
+            border: 0;
+            border-top: 2px solid #ddd;
+            margin: 30px auto;
+            width: 80%;
+        }
+
+        /* Product grid layout */
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 25px auto;
+        }
+
+        /* Styles each product box */
+        .product {
+            background-color: white;
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+
+            /* Adds a shadow around each product */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Styles product images */
+        .product img {
+            width: 100%;
+            max-width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        /* Slightly enlarges image when hovered over */
+        .product img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Styles order buttons */
+        .order-button {
+            display: inline-block;
+            background-color: #7b1fa2;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        /* Changes order button colour on hover */
+        .order-button:hover {
+            background-color: #9c27b0;
+        }
+
+        /* Styles the footer */
+        footer {
+            background-color: #7b1fa2;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Removes margin from footer paragraph */
+        footer p {
+            margin: 0;
+            color: white;
+        }
+
+        /* =========================
+           IMAGE POP-UP STYLING
+           ========================= */
+
+        /* Dark background behind enlarged image */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 15px;
+        }
+
+        /* Displays selected image in a larger size */
+        #bigImage {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        /* Styles the pop-up close button */
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background-color: white;
+            color: #7b1fa2;
+            border: none;
+            border-radius: 50%;
+            font-size: 28px;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           TABLET DESIGN
+           ========================= */
+
+        @media screen and (max-width: 900px) {
+
+            /* Displays two products per row */
+            .product-container {
+                grid-template-columns: repeat(2, 1fr);
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+        }
+
+        /* =========================
+           MOBILE DESIGN
+           ========================= */
+
+        @media screen and (max-width: 768px) {
+
+            /* Displays one product per row */
+            .product-container {
+                grid-template-columns: 1fr;
+                width: 90%;
+            }
+
+            /* Adjusts product images */
+            .product img {
+                max-width: 250px;
+                height: 220px;
+            }
+
+            /* Displays mobile menu button */
+            .menu-btn {
+                display: block;
+                width: 100%;
+            }
+
+            /* Hides navigation links until clicked */
+            nav a {
+                display: none;
+                margin: 12px 0;
+            }
+
+            /* Displays navigation links when menu is open */
+            nav.active a {
+                display: block;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+        }
+
+        /* =========================
+           SMALL MOBILE SCREENS
+           ========================= */
+
+        @media screen and (max-width: 480px) {
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            .product {
+                padding: 15px;
+            }
+
+            .product img {
+                max-width: 100%;
+                height: auto;
+                max-height: 230px;
+            }
+
+            .order-button {
+                width: 85%;
+                max-width: 280px;
+            }
+
+            footer {
+                padding: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION BAR
+         ========================= -->
+
+    <nav id="navbar">
+
+        <!-- Mobile menu button -->
+        <button class="menu-btn"
+                onclick="toggleMenu()"
+                aria-expanded="false"
+                aria-controls="navigationLinks">
+            ☰ MENU
+        </button>
+
+        <!-- Navigation links -->
+        <div id="navigationLinks">
+
+            <a href="home.html">HOME</a>
+
+            <a href="Products.html">PRODUCTS</a>
+
+            <a href="shop.html">SHOP HERE</a>
+
+            <a href="about.html">ABOUT US</a>
+
+            <a href="contact.html">CONTACT</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         SHOP NOW INTRODUCTION
+         ========================= -->
+
+    <h1>SHOP NOW</h1>
+
+    <!-- Contact button -->
+    <p>
+        <a class="order-button" href="contact.html">
+            CONTACT US TO ORDER
+        </a>
+    </p>
+
+    <!-- Introduction message -->
+    <p>
+        Welcome to the N.L. Rikhotso Foundation Cancer Care Products Store.
+
+        Browse our products and choose items that provide comfort,
+        care and support.
+    </p>
+
+
+    <hr>
+
+
+    <!-- =========================
+         SKIN CARE PRODUCTS
+         ========================= -->
+
+    <h2>SKIN CARE PRODUCTS</h2>
+
+    <p>
+        Gentle skin care products for people who need extra care
+        for dry or sensitive skin.
+    </p>
+
+    <div class="product-container">
+
+        <!-- Product 1: Moisturising Cream -->
+        <div class="product">
+
+            <h3>Moisturising Cream - R80</h3>
+
+            <img src="IMAGES/moisturising cream.png"
+                 alt="Moisturising Cream"
+                 onclick="openPopup(this)">
+
+            <p>
+                Gentle moisturising cream for dry and sensitive skin.
+            </p>
+
+        </div>
+
+
+        <!-- Product 2: Body Lotion -->
+        <div class="product">
+
+            <h3>Body Lotion - R70</h3>
+
+            <img src="IMAGES/body lotion.png"
+                 alt="Body Lotion"
+                 onclick="openPopup(this)">
+
+            <p>
+                Soft and gentle lotion for everyday skin care.
+            </p>
+
+        </div>
+
+
+        <!-- Product 3: Lip Balm -->
+        <div class="product">
+
+            <h3>Lip Balm - R35</h3>
+
+            <img src="IMAGES/lip balm.png"
+                 alt="Lip Balm"
+                 onclick="openPopup(this)">
+
+            <p>
+                Helps keep dry lips moisturised and comfortable.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- =========================
+         WIGS
+         ========================= -->
+
+    <h2>WIGS</h2>
+
+    <p>
+        Comfortable wigs available in different styles and colours.
+    </p>
+
+    <div class="product-container">
+
+        <!-- Product 1: Short Style Wig -->
+        <div class="product">
+
+            <h3>Short Style Wig - R450</h3>
+
+            <img src="IMAGES/short wig.png"
+                 alt="Short Style Wig"
+                 onclick="openPopup(this)">
+
+            <p>
+                A simple and comfortable short wig for everyday wear.
+            </p>
+
+        </div>
+
+
+        <!-- Product 2: Medium Style Wig -->
+        <div class="product">
+
+            <h3>Medium Style Wig - R550</h3>
+
+            <img src="IMAGES/medium wig.png"
+                 alt="Medium Style Wig"
+                 onclick="openPopup(this)">
+
+            <p>
+                A comfortable medium-length wig available in different styles.
+            </p>
+
+        </div>
+
+
+        <!-- Product 3: Long Style Wig -->
+        <div class="product">
+
+            <h3>Long Style Wig - R700</h3>
+
+            <img src="IMAGES/long hair.png"
+                 alt="Long Style Wig"
+                 onclick="openPopup(this)">
+
+            <p>
+                A longer wig with a natural-looking appearance.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- =========================
+         CANCER CARE CLOTHES
+         ========================= -->
+
+    <h2>CANCER CARE CLOTHES</h2>
+
+    <p>
+        Comfortable clothing designed to provide support and comfort
+        during cancer treatment and recovery.
+    </p>
+
+    <div class="product-container">
+
+        <!-- Product 1: Soft Cotton T-Shirt -->
+        <div class="product">
+
+            <h3>Soft Cotton T-Shirt - R180</h3>
+
+            <img src="IMAGES/pink shirt.png"
+                 alt="Soft Cotton T-Shirt"
+                 onclick="openPopup(this)">
+
+            <p>
+                Comfortable cotton T-shirt suitable for everyday wear.
+            </p>
+
+        </div>
+
+
+        <!-- Product 2: Comfort Hoodie -->
+        <div class="product">
+
+            <h3>Comfort Hoodie - R300</h3>
+
+            <img src="IMAGES/hoodie.png"
+                 alt="Comfort Hoodie"
+                 onclick="openPopup(this)">
+
+            <p>
+                Warm and comfortable hoodie for cooler days.
+            </p>
+
+        </div>
+
+
+        <!-- Product 3: Cancer Awareness T-Shirt -->
+        <div class="product">
+
+            <h3>Cancer Awareness T-Shirt - R220</h3>
+
+            <img src="IMAGES/white shirt.png"
+                 alt="Cancer Awareness T-Shirt"
+                 onclick="openPopup(this)">
+
+            <p>
+                A comfortable T-shirt that helps promote cancer awareness
+                and support.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- =========================
+         PROTEIN AND NUTRITION PRODUCTS
+         ========================= -->
+
+    <h2>PROTEIN AND NUTRITION PRODUCTS</h2>
+
+    <p>
+        Nutritional products that can be included as part of a
+        balanced diet. People receiving cancer treatment should
+        ask their healthcare professional about suitable nutrition.
+    </p>
+
+    <div class="product-container">
+
+        <!-- Product 1: Protein Shake -->
+        <div class="product">
+
+            <h3>Protein Shake - R120</h3>
+
+            <img src="IMAGES/protein shake.png"
+                 alt="Protein Shake"
+                 onclick="openPopup(this)">
+
+            <p>
+                Protein drink mix for nutritional support.
+            </p>
+
+        </div>
+
+
+        <!-- Product 2: Protein Bars -->
+        <div class="product">
+
+            <h3>Protein Bars - R30</h3>
+
+            <img src="IMAGES/protein bar.png"
+                 alt="Protein Bar"
+                 onclick="openPopup(this)">
+
+            <p>
+                Convenient protein snack for between meals.
+            </p>
+
+        </div>
+
+
+        <!-- Product 3: Protein Powder -->
+        <div class="product">
+
+            <h3>Protein Powder - R250</h3>
+
+            <img src="IMAGES/protein powder.png"
+                 alt="Protein Powder"
+                 onclick="openPopup(this)">
+
+            <p>
+                Protein powder that can be added to drinks or meals.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- =========================
+         PLACE YOUR ORDER SECTION
+         ========================= -->
+
+    <h2>PLACE YOUR ORDER</h2>
+
+    <p>
+        Select the products you would like to purchase and
+        contact us for more information about ordering and payment.
+    </p>
+
+    <!-- Link to contact page -->
+    <a class="order-button" href="contact.html">
+        CONTACT US TO ORDER
+    </a>
+
+
+    <!-- =========================
+         FOOTER SECTION
+         ========================= -->
+<center>
+    <footer>
+
+        <!-- Copyright information -->
+        <p>
+            © 2026 N.L. Rikhotso Foundation. All Rights Reserved.
+        </p>
+
+    </footer>
+</center>
+
+    <!-- =========================
+         IMAGE POP-UP WINDOW
+         ========================= -->
+
+    <div id="popup"
+         onclick="closePopup()"
+         role="dialog"
+         aria-modal="true"
+         aria-label="Enlarged product image">
+
+        <!-- Close button -->
+        <button class="close-button"
+                onclick="closePopup()"
+                aria-label="Close enlarged image">
+            &times;
+        </button>
+
+        <!-- Displays the enlarged image -->
+        <img id="bigImage"
+             src=""
+             alt="Enlarged product picture">
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT SECTION
+         ========================= -->
+
+    <script>
+
+        // Function to open and close the mobile navigation menu
+        function toggleMenu() {
+
+            // Gets the navigation bar
+            var menu = document.getElementById("navbar");
+
+            // Opens or closes the menu
+            menu.classList.toggle("active");
+
+            // Updates the menu button
+            var button = document.querySelector(".menu-btn");
+
+            button.setAttribute(
+                "aria-expanded",
+                menu.classList.contains("active")
+            );
+
+        }
+
+
+        // Function to open the enlarged product image
+        function openPopup(image) {
+
+            // Gets the pop-up window
+            var popup = document.getElementById("popup");
+
+            // Gets the large image
+            var bigImage = document.getElementById("bigImage");
+
+            // Copies the selected product image
+            bigImage.src = image.src;
+
+            // Copies the product description
+            bigImage.alt = image.alt;
+
+            // Displays the pop-up window
+            popup.style.display = "flex";
+
+        }
+
+
+        // Function to close the enlarged product image
+        function closePopup() {
+
+            // Hides the pop-up window
+            document.getElementById("popup").style.display = "none";
+
+        }
+
+
+        // Closes the pop-up when the Escape key is pressed
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                closePopup();
+
+            }
+
+        });
+
+
+        // Displays a welcome message in the browser console
+        window.onload = function() {
+
+            console.log(
+                "Welcome to N.L. Rikhotso Foundation Shop Now!"
+            );
+
+        };
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+ 
+
+

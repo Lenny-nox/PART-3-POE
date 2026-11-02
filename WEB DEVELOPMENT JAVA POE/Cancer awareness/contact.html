@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>N.L. Rikhotso Foundation | Contact Us</title>
+
+    <style>
+
+        /* GENERAL PAGE STYLING */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f0f7;
+            color: #333;
+            text-align: center;
+        }
+
+        /* NAVIGATION BAR */
+
+        nav {
+            background-color: #7b1fa2;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd54f;
+        }
+
+        /* MOBILE MENU BUTTON */
+
+        .menu-btn {
+            display: none;
+            background-color: #9c27b0;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* HEADINGS */
+
+        h1 {
+            color: #7b1fa2;
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #7b1fa2;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #9c27b0;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* STORE INFORMATION TABLE */
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            width: 70%;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 15px;
+        }
+
+        th {
+            background-color: #7b1fa2;
+            color: white;
+        }
+
+        td {
+            background-color: white;
+        }
+
+        /* GOOGLE MAP CONTAINER */
+
+        .map-container {
+            width: 70%;
+            max-width: 800px;
+            margin: 20px auto 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-container iframe {
+            display: block;
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+
+        /* CONTACT FORM CONTAINER */
+
+        main {
+            background-color: white;
+            width: 70%;
+            max-width: 800px;
+            box-sizing: border-box;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* CONTACT FORM */
+
+        form {
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 6px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border: 2px solid #9c27b0;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* SEND BUTTON */
+
+        button[type="submit"] {
+            background-color: #7b1fa2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #9c27b0;
+        }
+
+        /* FORM CONFIRMATION MESSAGE */
+
+        #formMessage {
+            color: #7b1fa2;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #7b1fa2;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* TABLET SCREEN STYLING */
+
+        @media screen and (max-width: 900px) {
+
+            table {
+                width: 85%;
+            }
+
+            main {
+                width: 85%;
+            }
+
+            .map-container {
+                width: 85%;
+            }
+
+            nav a {
+                margin: 8px;
+            }
+        }
+
+        /* MOBILE PHONE STYLING */
+
+        @media screen and (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .menu-btn {
+                display: block;
+                width: 100%;
+                max-width: 250px;
+            }
+
+            #navigationLinks {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #navigationLinks.active {
+                display: flex;
+            }
+
+            nav a {
+                display: block;
+                padding: 10px;
+                margin: 5px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 23px;
+            }
+
+            table {
+                width: 95%;
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            main {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .map-container {
+                width: 95%;
+            }
+
+            .map-container iframe {
+                height: 300px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            button[type="submit"] {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+
+    <nav>
+
+        <button class="menu-btn"
+            type="button"
+            onclick="toggleMenu()">
+
+            ☰ MENU
+
+        </button>
+
+        <div id="navigationLinks">
+
+            <a href="home.html">HOME</a>
+
+            <a href="Products.html">PRODUCTS</a>
+
+            <a href="shop.html">SHOP HERE</a>
+
+            <a href="about.html">ABOUT US</a>
+
+            <a href="contact.html">CONTACT</a>
+
+        </div>
+
+    </nav>
+
+    <!-- STORE INFORMATION SECTION -->
+
+    <h2>Store Information</h2>
+
+    <table>
+
+        <tr>
+            <th>Shop Opens</th>
+            <td>07:00 a.m. Mon-Fri</td>
+        </tr>
+
+        <tr>
+            <th>Shop Closes</th>
+            <td>17:00 Mon-Fri</td>
+        </tr>
+
+        <tr>
+            <th>We Are Located At</th>
+            <td>Castor Oil Street, Protea Glen, Soweto</td>
+        </tr>
+
+    </table>
+
+    <!-- CANCER AWARENESS MESSAGE -->
+
+    <p>
+        Together we can spread hope, encourage early cancer screening,
+        and support those fighting cancer.
+    </p>
+
+    <!-- CONTACT INFORMATION -->
+
+    <h3>N.L. Rikhotso Cancer Care Products</h3>
+
+    <p>
+        Castor Oil Street<br>
+        Protea Glen<br>
+        Soweto, Gauteng<br>
+        South Africa
+    </p>
+
+    <p>
+        Phone: (011) 555-2026<br>
+        Email: st10544376@rcconnect.edu.za
+    </p>
+
+    <!-- SOCIAL MEDIA -->
+
+    <p>
+        Follow us on Facebook |
+        Instagram @ N.L. Rikhotso Cancer Care Products Store
+    </p>
+
+    <!-- GOOGLE MAP LOCATION -->
+
+    <h2>Find Us Here</h2>
+
+    <p>
+        Visit N.L. Rikhotso Cancer Care Products
+        at Castor Oil Street, Protea Glen, Soweto.
+    </p>
+
+    <p>
+        <strong>Our Address:</strong><br>
+        Castor Oil Street<br>
+        Protea Glen<br>
+        Soweto, Gauteng, South Africa
+    </p>
+
+    <div class="map-container">
+
+        <iframe
+            src="https://www.google.com/maps?q=Castor+Oil+Street,+Protea+Glen,+Soweto,+South+Africa&output=embed"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+    </div>
+
+    <!-- CONTACT FORM -->
+
+    <main>
+
+        <h1>Contact Us</h1>
+
+        <form id="contactForm">
+
+            <!-- NAME -->
+
+            <label for="name">NAME:</label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                required>
+
+            <!-- SURNAME -->
+
+            <label for="surname">SURNAME:</label>
+
+            <input
+                type="text"
+                id="surname"
+                name="surname"
+                required>
+
+            <!-- ID NUMBER -->
+
+            <label for="id">ID NUMBER:</label>
+
+            <input
+                type="text"
+                id="id"
+                name="id"
+                required>
+
+            <!-- EMAIL -->
+
+            <label for="email">EMAIL:</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                required>
+
+            <!-- MESSAGE -->
+
+            <label for="message">MESSAGE:</label>
+
+            <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required></textarea>
+
+            <!-- SEND BUTTON -->
+
+            <button type="submit">SEND</button>
+
+            <!-- CONFIRMATION MESSAGE -->
+
+            <p id="formMessage" aria-live="polite"></p>
+
+        </form>
+
+    </main>
+
+    <!-- JAVASCRIPT SECTION -->
+
+    <script>
+
+        // GET NAVIGATION LINKS
+
+        const navigationLinks =
+            document.getElementById("navigationLinks");
+
+        // OPEN AND CLOSE MOBILE MENU
+
+        function toggleMenu() {
+
+            navigationLinks.classList.toggle("active");
+
+        }
+
+        // GET CONTACT FORM
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        // GET CONFIRMATION MESSAGE
+
+        const formMessage =
+            document.getElementById("formMessage");
+
+        // FORM SUBMISSION
+
+        contactForm.addEventListener("submit", function(event) {
+
+            // PREVENT PAGE RELOADING
+
+            event.preventDefault();
+
+            // CHECK FORM VALIDATION
+
+            if (contactForm.checkValidity()) {
+
+                // DISPLAY SUCCESS MESSAGE
+
+                formMessage.textContent =
+                    "Thank you for contacting N.L. Rikhotso Foundation! Your details have been checked and we will get back to you.";
+
+                // CLEAR FORM FIELDS
+
+                contactForm.reset();
+
+            } else {
+
+                // DISPLAY VALIDATION MESSAGES
+
+                contactForm.reportValidity();
+
+            }
+
+        });
+
+    </script>
+
+    <!-- FOOTER SECTION -->
+
+    <footer>
+
+        <p>
+            © 2026 N.L. Rikhotso Foundation.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
+
+
+
+

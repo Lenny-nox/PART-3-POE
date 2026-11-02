@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Title displayed on the browser tab -->
+    <title>About Us | N.L. Rikhotso Cancer Care Products Store</title>
+
+    <!-- Makes the website adjust to different screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Supports different characters -->
+    <meta charset="UTF-8">
+
+    <!-- =========================
+         CSS STYLING
+         ========================= -->
+
+    <style>
+
+        /* Applies styling to the whole webpage */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f0f7;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Styles the navigation bar */
+        nav {
+            background-color: #7b1fa2;
+            padding: 20px;
+        }
+
+        /* Styles navigation links */
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Changes link colour when the mouse moves over it */
+        nav a:hover {
+            color: #ffd54f;
+        }
+
+        /* Styles the mobile menu button */
+        .menu-btn {
+            display: none;
+            background-color: #7b1fa2;
+            color: white;
+            border: none;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Adds space below the header */
+        header {
+            margin-bottom: 20px;
+        }
+
+        /* Styles the main About Us container */
+        .about-container {
+            background-color: white;
+            width: 80%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Styles the store logo */
+        .logo {
+            width: 350px;
+            max-width: 100%;
+            height: auto;
+            float: right;
+            margin: 0 0 20px 30px;
+            border-radius: 10px;
+        }
+
+        /* Styles the main heading */
+        h1 {
+            color: #7b1fa2;
+            font-size: 36px;
+        }
+
+        /* Styles smaller headings */
+        h2 {
+            color: #7b1fa2;
+            margin-top: 30px;
+        }
+
+        /* Styles paragraphs */
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        /* Styles the reasons section */
+        .reasons {
+            background-color: #f3e5f5;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        /* Styles each reason */
+        .reasons div {
+            padding: 10px;
+            font-size: 17px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Removes the border from the last reason */
+        .reasons div:last-child {
+            border-bottom: none;
+        }
+
+        /* Styles the footer */
+        footer {
+            background-color: #7b1fa2;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Styles the footer paragraph */
+        footer p {
+            color: white;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* =========================
+           TABLET AND MOBILE DESIGN
+           ========================= */
+
+        @media screen and (max-width: 768px) {
+
+            /* Adjusts the main container */
+            .about-container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            /* Centres the logo on smaller screens */
+            .logo {
+                float: none;
+                display: block;
+                margin: 0 auto 20px;
+                width: 300px;
+            }
+
+            /* Adjusts heading sizes */
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            /* Adjusts paragraph sizes */
+            p {
+                font-size: 16px;
+            }
+
+            /* Adjusts reasons text */
+            .reasons div {
+                font-size: 16px;
+            }
+
+            /* Displays the mobile menu button */
+            .menu-btn {
+                display: block;
+                width: 100%;
+            }
+
+            /* Hides navigation links until the menu is opened */
+            nav a {
+                display: none;
+                margin: 12px 0;
+            }
+
+            /* Displays links when the menu is active */
+            nav.active a {
+                display: block;
+            }
+        }
+
+        /* =========================
+           SMALL MOBILE SCREENS
+           ========================= */
+
+        @media screen and (max-width: 480px) {
+
+            /* Reduces container spacing */
+            .about-container {
+                width: 96%;
+                padding: 15px;
+                margin: 15px auto;
+            }
+
+            /* Adjusts main heading */
+            h1 {
+                font-size: 24px;
+            }
+
+            /* Adjusts smaller headings */
+            h2 {
+                font-size: 19px;
+            }
+
+            /* Adjusts paragraph text */
+            p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            /* Adjusts logo size */
+            .logo {
+                width: 100%;
+                max-width: 260px;
+            }
+
+            /* Adjusts reasons section */
+            .reasons {
+                padding: 12px;
+            }
+
+            .reasons div {
+                font-size: 15px;
+                padding: 10px 5px;
+            }
+
+            /* Adjusts footer */
+            footer {
+                padding: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER AND NAVIGATION
+         ========================= -->
+
+    <header>
+
+        <!-- Navigation bar -->
+        <nav id="navbar">
+
+            <!-- Mobile menu button -->
+            <button class="menu-btn"
+                    onclick="toggleMenu()"
+                    aria-expanded="false"
+                    aria-controls="navigationLinks">
+                ☰ MENU
+            </button>
+
+            <!-- Navigation links -->
+            <div id="navigationLinks">
+
+                <!-- Link to Home page -->
+                <a href="home.html">HOME</a>
+
+                <!-- Link to Products page -->
+                <a href="Products.html">PRODUCTS</a>
+
+                <!-- Link to Shopping page -->
+                <a href="shop.html">SHOP HERE</a>
+
+                <!-- Link to About Us page -->
+                <a href="about.html">ABOUT US</a>
+
+                <!-- Link to Contact page -->
+                <a href="contact.html">CONTACT</a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         ABOUT US CONTENT
+         ========================= -->
+
+    <!-- Main container for About Us information -->
+    <div class="about-container">
+
+        <!-- Store logo -->
+        <img src="IMAGES/store logo.png"
+             alt="N.L. Rikhotso Cancer Care Products Store Logo"
+             class="logo">
+
+        <!-- Main About Us heading -->
+        <h1>About N.L. Rikhotso Cancer Care Products Store</h1>
+
+        <!-- Introduction paragraph -->
+        <p>
+            Welcome to N.L. Rikhotso Cancer Care Products Store. We are an online
+            store dedicated to providing carefully selected products for people
+            affected by cancer, as well as their families and caregivers.
+        </p>
+
+        <!-- Information about the purpose of the store -->
+        <p>
+            Our store was created to make cancer care products more accessible,
+            convenient, and easy to find. We understand that comfort and support
+            are important during the cancer journey, and we aim to provide products
+            that can assist customers during this difficult time.
+        </p>
+
+
+        <!-- =========================
+             OUR PRODUCTS SECTION
+             ========================= -->
+
+        <h2>Our Products</h2>
+
+        <!-- Description of products -->
+        <p>
+            We offer a variety of cancer care products selected with comfort,
+            support, and everyday needs in mind. Our products are suitable for
+            cancer patients, caregivers, family members, and anyone looking for
+            thoughtful cancer-care items.
+        </p>
+
+
+        <!-- =========================
+             OUR MISSION SECTION
+             ========================= -->
+
+        <h2>Our Mission</h2>
+
+        <!-- Mission statement -->
+        <p>
+            Our mission is to provide quality cancer care products while creating a
+            shopping experience that is simple, convenient, and caring.
+        </p>
+
+
+        <!-- =========================
+             OUR VISION SECTION
+             ========================= -->
+
+        <h2>Our Vision</h2>
+
+        <!-- Vision statement -->
+        <p>
+            Our vision is to become a trusted online store for cancer care products,
+            making it easier for customers to find products that provide comfort,
+            support, and care.
+        </p>
+
+
+        <!-- =========================
+             WHY CHOOSE US SECTION
+             ========================= -->
+
+        <h2>Why Choose Us?</h2>
+
+        <!-- Container holding the reasons -->
+        <div class="reasons">
+
+            <div>Quality Cancer Care Products</div>
+
+            <div>Convenient Online Shopping</div>
+
+            <div>Customer-Focused Service</div>
+
+            <div>Products Selected With Care</div>
+
+            <div>A Caring and Supportive Shopping Experience</div>
+
+        </div>
+
+
+        <!-- =========================
+             CUSTOMER COMMITMENT
+             ========================= -->
+
+        <h2>Our Commitment to Customers</h2>
+
+        <!-- Customer commitment information -->
+        <p>
+            At N.L. Rikhotso Cancer Care Products Store, we are committed to
+            providing our customers with a reliable and welcoming online shopping
+            experience. We value every customer and strive to ensure that our
+            products and services meet their needs.
+        </p>
+
+
+        <!-- =========================
+             THANK YOU SECTION
+             ========================= -->
+
+        <h2>Thank You for Choosing Us</h2>
+
+        <!-- Final message to customers -->
+        <p>
+            Thank you for visiting N.L. Rikhotso Cancer Care Products Store. We
+            appreciate your support and look forward to providing you with products
+            that make a difference in your cancer-care journey.
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER SECTION
+         ========================= -->
+
+    <footer>
+
+        <!-- Copyright information -->
+        <p>
+            © 2026 N.L. Rikhotso Foundation. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT SECTION
+         ========================= -->
+
+    <script>
+
+        // Function to open and close the mobile menu
+        function toggleMenu() {
+
+            // Get the navigation bar
+            var menu = document.getElementById("navbar");
+
+            // Open or close the navigation menu
+            menu.classList.toggle("active");
+
+            // Update the menu button accessibility information
+            var button = document.querySelector(".menu-btn");
+
+            button.setAttribute(
+                "aria-expanded",
+                menu.classList.contains("active")
+            );
+
+        }
+
+        // Displays a welcome message in the browser console
+        window.onload = function() {
+
+            console.log(
+                "Welcome to N.L. Rikhotso Cancer Care Products Store!"
+            );
+
+        };
+
+    </script>
+
+</body>
+</html>
+
+
+
